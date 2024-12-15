@@ -214,7 +214,7 @@ FROM Orders o
 JOIN Customers c ON c.CustomerID = o.CustomerID
 GROUP BY c.CustomerName
 HAVING orderCount > (
-	SELECT AVG(od.orderCount)
+	SELECT AVG(od.orderCount) AS avg
 	FROM (SELECT COUNT(*) AS orderCount
 		  FROM Orders o
 		  JOIN Customers c ON c.CustomerID = o.CustomerID
@@ -232,6 +232,23 @@ HAVING orderCount > (
 		  JOIN Customers c ON c.CustomerID = o.CustomerID
 		  GROUP BY c.CustomerName) od
 );
+
+WITH od AS (
+	SELECT COUNT(*) AS orderCount
+	FROM Orders o
+	JOIN Customers c ON c.CustomerID = o.CustomerID
+	GROUP BY c.CustomerName
+),
+odAVG AS (
+	SELECT AVG(orderCount) AS avg
+	FROM od
+)
+
+SELECT c.CustomerName, COUNT(*) AS orderCount
+FROM Orders o
+JOIN Customers c ON c.CustomerID = o.CustomerID
+GROUP BY c.CustomerName
+HAVING orderCount > (SELECT * FROM odAVG);
 
 -- 13) Tìm sản phẩm có giá trị đơn hàng trung bình cao nhất (dựa trên giá sản phẩm và số lượng)
 SELECT p.ProductID, p.ProductName, AVG(od.Quantity * p.Price) AS avg
