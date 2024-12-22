@@ -30,7 +30,7 @@
     border-radius: 20px;
 }
 
-.card .card-content {
+.card .card-info {
     width: 400px;
     height: 150px;
     margin-left: 16px;
@@ -47,7 +47,7 @@
     line-height: 1.86;
 }
 
-.card .card-info {
+.card .card-content {
     width: 200px;
     height: 150px;
     margin-left: 16px;
