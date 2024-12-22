@@ -1,0 +1,64 @@
+.container {
+    max-width: 300px;
+    margin: auto;
+    margin-top: 8vh;
+}
+
+.card {
+    background-color: white;
+    padding: 8px;
+    border-radius: 12px;
+    border: 1px solid #99c9eb;
+}
+
+img { 
+    width: 100%;
+    height: 215px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.card_detail {
+    padding: 16px 8px 8px 8px;
+}
+
+.tag {
+    padding: 4px 8px;
+    border: 1px solid #e5eaed;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #788697;
+    margin-top: 10px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 16px;
+}
+
+.description {
+    font-size: 14px;
+    color: #7f8c9b;
+    line-height: 150%;
+}
+
+button {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    color: #0077ff;
+    background-color: #e0efff;
+    margin: 0 auto;
+    display: block;
+}
+
+.tag:hover {
+    background-color: #e0efff;
+}
+
+button:hover {
+    background-color: yellow;
+}
